@@ -16,7 +16,7 @@ För mer information om postcovid i Sverige, se följande [avsnitt](https://www.
 
 ## Tillgängliga data
 
-<div class="alert alert-info">Senaste uppdatering: 15.10.2021</div>
+<div class="alert alert-info">Senaste uppdatering: {{% postcovid_date_modified %}}</div>
 
 Alla data som presenteras här finns tillgängliga för nedladdning från [Socialstyrelsen](https://www.socialstyrelsen.se/statistik-och-data/statistik/statistik-om-covid-19/) och bygger på data från Patientregistret [Patientregistret](https://www.socialstyrelsen.se/statistik-och-data/register/alla-register/patientregistret/) och [Dödsorsaksregistret](https://www.socialstyrelsen.se/statistik-och-data/register/alla-register/dodsorsaksregistret/). Data uppdateras varje månad, den andra onsdagen i månaden och finns tillgängliga [här](https://www.socialstyrelsen.se/statistik-och-data/statistik/statistik-om-covid-19/). Forskare kan ansöka om tillgänglighet till ytterligare data via RUT (Register Utiliser Tool) om deras projekt uppfyller kraven för åtkomst. Riktlinjerna finns [här](https://bestalladata.socialstyrelsen.se/data-for-forskning/) last.
 
@@ -56,7 +56,7 @@ Detta diagram visar antalet gånger patienter som diagnostiserats med diagnoser 
 
 ### Geografisk fördelning av diagnostiserade fall relativt populationens storlek
 
-Geografisk fördelning av diagnostiserade fall i förhållande till befolkningsstorlek. Kartorna nedan visar antal individer som med respektive diagnoskod uppdelat per län i procent av den totala befolkningen i länet. Den totala befolkningsmängden per län och antal personer med diagnoskoden visas genom att scrolla över ett visst län. Observera att intervallen som används för de två kartorna inte är detsamma.
+Geografisk fördelning av diagnostiserade fall i förhållande till befolkningsstorlek. Kartorna nedan visar antal individer som med respektive diagnoskod uppdelat per län i procent av den totala befolkningen i länet. Den totala befolkningsmängden per län och antal personer med diagnoskoden visas genom att scrolla över ett visst län.
 
 #### Diagnoskod U09.9
 

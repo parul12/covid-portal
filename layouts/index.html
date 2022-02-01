@@ -10,7 +10,12 @@
 
 <!-- Main content -->
 <div class="row">
-  <div class="col-lg-8 vert-line-right">
+  <div class="col-lg-8 vert-line-right mt-3">
+
+    <!-- Omicron VoC banner -->
+    <div class="container mb-4 omicron_banner">
+    <a href="/voc/omicron">Special section on Omicron VoC: data & announcements</a>
+    </div>
 
     <!-- Available data -->
 
@@ -107,38 +112,6 @@
       </div>
     </div>
 
-    <!-- Data and Code Reuse Competition banner -->
-    <!-- {{ if eq $.Site.Language.LanguageName "Svenska" }}
-    <div class="container mb-4 competition-banner text-white">
-      <div class="row px-3 pt-1">
-        <h4>Tävling: Återanvändning av covid-19 data och kod<h4>
-      </div>
-      <div class="row px-3">
-          <p><b>Vem?</b> Öppen för alla, både enskilda individer och grupper.<br>
-            <b>När?</b> Skicka in ditt bidrag mellan den 15 maj och 5 december 2021.</p>
-      </div>
-      <div class="row pb-2 px-3">
-        <h6><a style="color:white" href="/sv/data_code_reuse/">Mer om tävlingen <i
-              class="fas fa-arrow-circle-right"></i></a></h6>
-      </div>
-    </div>
-    {{ else }}
-    <div class="container mb-4 competition-banner text-white">
-      <div class="row px-3 pt-1">
-        <h4>COVID-19 Data & Code Reuse Competition
-          <h4>
-      </div>
-      <div class="row px-3">
-          <p><b>Who?</b> Open to everyone, individuals or groups.<br>
-            <b>When?</b> Submit your entry between May 15th and December 5th 2021.</p>
-      </div>
-      <div class="row pb-2 px-3">
-        <h6><a style="color:white" href="/data_code_reuse/">About the competition <i
-              class="fas fa-arrow-circle-right"></i></a></h6>
-      </div>
-    </div>
-    {{ end }} -->
-
     <!-- Data highlights -->
     <div class="container mb-4">
       {{ range .Site.Menus.homepage_highlights }}
@@ -150,10 +123,10 @@
       </div>
       {{ end }}
       <div class="row">
-        {{ $news_high := where .Site.RegularPages "Section" "news" }}
+        {{ $highs := where .Site.RegularPages "Section" "highlights" }}
         {{ if eq $.Site.Language.LanguageName "Svenska" }}
         {{ $display_alert := false }}
-        {{ range first 3 $news_high }} {{ if .Params.needs_translation }} {{ $display_alert = true }} {{ end }}
+        {{ range first 3 $highs }} {{ if .Params.needs_translation }} {{ $display_alert = true }} {{ end }}
         {{ end }}
         {{ if $display_alert }}<div class="alert alert-info">
             <i class="fas fa-exclamation-triangle"></i>
@@ -161,7 +134,7 @@
         </div> {{ end }}
         {{ end }}
         <div class="row">
-          {{ range first 3 $news_high }}
+          {{ range first 3 $highs }}
           <div class="col-md mx-2 mb-2 border bg-light">
             <img style="margin-top:0.5rem" src="{{ .Params.banner }}" alt="{{ .Title }}">
             <h6><a href="{{ .RelPermalink }}">{{ .Title }}</a></h6>
@@ -271,33 +244,31 @@
           </div>
         </div>
       </div>
-      <!-- Wastewater Stockholm -->
+      <!-- Wastewater -->
       <div class="row">
         <div class="col-md mb-2">
           <div class="row">
             <h6><a
-                href="{{ if eq $.Site.Language.LanguageName "Svenska" }}/sv{{ end}}/data_types/environment/wastewater/#stockholm">{{ $.Param "teststats.stockholm_wastewater_title" }}
+                href="{{ if eq $.Site.Language.LanguageName "Svenska" }}/sv{{ end}}/data_types/environment/wastewater/">{{ $.Param "teststats.wastewater_main_title" }}
                 <i class="fas fa-arrow-circle-right"></i></a></h6>
           </div>
           <div class="row">
+            <h6>Stockholm</h6>
             <div class="d-md-none alert alert-info">{{ if eq $.Site.Language.LanguageName "Svenska" }}Skrolla grafen
               horisontellt för att se alla data.{{ else }}Scroll the plot sideways to view all data.{{ end }}</div>
             <div class="table-responsive" id="stockholm_wastewater"></div>
           </div>
-        </div>
-      </div>
-      <!-- Wastewater SLU lab -->
-      <div class="row">
-        <div class="col-md mb-2">
           <div class="row">
-            <h6><a
-                href="{{ if eq $.Site.Language.LanguageName "Svenska" }}/sv/data_types/environment/wastewater/#uppsala-umeå-örebro-kalmar-och-andra-orter{{ else }}data_types/environment/wastewater/#uppsala-umeå-örebro-kalmar-and-other-municipalities{{ end }}">{{ $.Param "teststats.othercitites_wastewater_title" }}
-                <i class="fas fa-arrow-circle-right"></i></a></h6>
-          </div>
-          <div class="row">
+            <h6>Malmö</h6>
             <div class="d-md-none alert alert-info">{{ if eq $.Site.Language.LanguageName "Svenska" }}Skrolla grafen
               horisontellt för att se alla data.{{ else }}Scroll the plot sideways to view all data.{{ end }}</div>
-            <div class="table-responsive" id="othercities_wastewater"></div>
+            <div class="table-responsive" id="malmo_wastewater"></div>
+          </div>
+          <div class="row">
+            <h6>Uppsala</h6>
+            <div class="d-md-none alert alert-info">{{ if eq $.Site.Language.LanguageName "Svenska" }}Skrolla grafen
+              horisontellt för att se alla data.{{ else }}Scroll the plot sideways to view all data.{{ end }}</div>
+            <div class="table-responsive" id="uppsala_wastewater"></div>
           </div>
         </div>
       </div>
@@ -316,6 +287,27 @@
           </div>
         </div>
       </div>
+      <!-- Vaccines -->
+      <div class="row">
+        <div class="col-md mb-2">
+          <div class="row">
+            <h6><a
+                href="{{ if eq $.Site.Language.LanguageName "Svenska" }}/sv{{ end}}/data_types/health_data/vaccines/">{{ $.Param "teststats.vaccinestitle" }}
+                <i class="fas fa-arrow-circle-right"></i></a></h6>
+          </div>
+          <div class="row">
+            <div class="d-md-none alert alert-info">{{ if eq $.Site.Language.LanguageName "Svenska" }}Skrolla grafen
+              horisontellt för att se alla data.{{ else }}Scroll the plot sideways to view all data.{{ end }}</div>
+              <div class="table-responsive"><div id="https://blobserver.dckube.scilifelab.se/blob/vaccine_heatmap_small.json" class="plotly" style="width:600px;height:300px"></div></div>
+              <script>
+              Plotly.d3.json('https://blobserver.dckube.scilifelab.se/blob/vaccine_heatmap_small.json', function(err, fig) {
+                  Plotly.plot('https://blobserver.dckube.scilifelab.se/blob/vaccine_heatmap_small.json', fig.data, fig.layout, {responsive: true});
+              });
+              </script>
+          </div>
+        </div>
+      </div>
+
     </div>
 
   </div>
@@ -349,6 +341,27 @@
             request{{ end }} <i class="fas fa-arrow-circle-right"></i></a></h6>
       </div>
     </div>
+
+    <!-- Portal updates -->
+    {{ if eq $.Site.Language.LanguageName "English" }}
+    <div class="container mt-3">
+      <div class="row">
+        <h4>Portal news</h4>
+      </div>
+      <!-- CRUSH Covid -->
+      <div class="row border">
+        {{ $updates := where .Site.RegularPages "Section" "updates" }}
+        <div class="col mx-3 mb-2">
+          {{ range $index, $el := first 3 $updates }}
+          <div class="row mt-3"><span><a href="{{ .RelPermalink }}">{{ .Title }}</a></span></div>
+          <div class="row small text-muted">{{ .Date.Format "2006-01-02" }}</div>
+          {{ if ne $index 2}}<hr>{{ end }}
+          {{ end }}
+          <div class="row mt-3"><span><a href="/updates/">See all portal news <i class="fas fa-arrow-circle-right"></i></a></span></div>
+        </div>
+      </div>
+    </div>
+    {{ end }}
 
     <!-- External support services -->
     <div class="container mt-3">
@@ -400,7 +413,7 @@
         <div class="col mx-3">
           <div class="row">
             <h5><a
-                href="{{ if eq $.Site.Language.LanguageName "Svenska" }}/sv/news/symptom-study-sweden/{{ else }}/data_types/health_data/symptom_study_sweden/{{ end }}">COVID
+                href="{{ if eq $.Site.Language.LanguageName "Svenska" }}/sv/highlights/symptom-study-sweden/{{ else }}/data_types/health_data/symptom_study_sweden/{{ end }}">COVID
                 Symptom Study Sweden</a></h5>
           </div>
           <div class="row"><span>{{ if eq $.Site.Language.LanguageName "Svenska" }}CSSS samlar kontinuerligt in data om
@@ -426,7 +439,8 @@
 <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.8.0"></script>
 
 <script src="https://datagraphics.dckube.scilifelab.se/graphic/e4c6a7b8bff648a5adaabbdd3d994bf9.js?id=serology"></script>
-<script src="https://datagraphics.dckube.scilifelab.se/graphic/802399c945414efb93b05c64d70d723f.js?id=othercities_wastewater"></script>
+<script src="https://datagraphics.dckube.scilifelab.se/graphic/6d16b18be0d74425b313040c502f29c8.js?id=uppsala_wastewater"></script>
 <script src="https://datagraphics.dckube.scilifelab.se/graphic/93bad55e86ad4b0f97d4d27c77862bc9.js?id=stockholm_wastewater"></script>
 <script src="https://datagraphics.dckube.scilifelab.se/graphic/530ca62cc6f7449680793a252155fee3.js?id=postcovid_halthcare_contacts"></script>
+<script src="https://datagraphics.dckube.scilifelab.se/graphic/d262787e199b4c9b8fbbaf5f95edb7bc.js?id=malmo_wastewater"></script>
 {{ end }}

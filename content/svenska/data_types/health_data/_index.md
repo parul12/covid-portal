@@ -31,3 +31,6 @@ Antal test per capita och % positiva fall i varje postnummer i Uppsala län.
 
 ##### [Postcovid](post_covid)
 Information relaterad till diagnoser som använts för kvarstående och sena symptom. Inkluderar relevant demografisk information och data kring associerade symptom, forskning och bakgrundsinformation. Data uppdateras en gång per månad.
+
+##### [Administrering av vaccin och vaccinforskning.](vaccines)
+Visualiseringar av statistik relaterad till det svenska Covid-19 vaccinationsprogrammet, forskningsprojekt relaterade till vaccinforskning och publikationer kring ämnet.
